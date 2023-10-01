@@ -168,6 +168,46 @@ public:
         return temp;
     }
 
+    //Сложение и пресваивание переиенной
+    template <typename T>
+    Binary& operator += (T number)
+    {
+        int sum = this->decimalSystem + number;
+        this->decimalSystem = sum;
+        this->Bin(sum);
+        return *this;
+    }
+
+    //Разность и пресваивание переиенной
+    template <typename T>
+    Binary& operator -= (T number)
+    {
+        int sum = this->decimalSystem - number;
+        this->decimalSystem = sum;
+        this->Bin(sum);
+        return *this;
+    }
+
+    //Сложение и пресваивание переиенной
+    template <typename T>
+    Binary& operator *= (T number)
+    {
+        int sum = this->decimalSystem * number;
+        this->decimalSystem = sum;
+        this->Bin(sum);
+        return *this;
+    }
+
+    //Диление и пресваивание переиенной
+    template <typename T>
+    Binary& operator /= (T number)
+    {
+        int sum = this->decimalSystem / number;
+        this->decimalSystem = sum;
+        this->Bin(sum);
+        return *this;
+    }
+
     //Вывод на экран бинарных чисел
     void Show()
     {
@@ -183,11 +223,12 @@ public:
 
 int main()
 {
-    Binary a, c;
+    Binary a;
 
-    a = 5;
+    a = 20;
+    a.Show();
 
-    c.Show();
+    a += 20;
     a.Show();
 
     return 0;
