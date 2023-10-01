@@ -7,10 +7,10 @@ class Binary
 {
 private:
     //Число в десятичной системе
-    int tenNumber;
+    int decimalSystem;
 
     //Число в двоичной системе
-    int twoCode;
+    int binarySystem;
 
     //Перевод десятичного числа в двоичное
     void Bin(int number)
@@ -22,21 +22,21 @@ private:
             binCode = std::to_string(number % 2) + binCode;
             number /= 2;
         }
-        this->twoCode = std::stoi(binCode);
+        this->binarySystem = std::stoi(binCode);
     }
 
 public:
     //Конструктор по умолчанию
     Binary()
     {
-        this->tenNumber = 0;
-        this->twoCode = 0;
+        this->decimalSystem = 0;
+        this->binarySystem = 0;
     }
 
     //Присваивание значения int
     Binary& operator = (int number)
     {
-        this->tenNumber = number;
+        this->decimalSystem = number;
         Bin(number);
         return *this;
     }
@@ -44,8 +44,8 @@ public:
     //Присваивания значения Binary
     Binary& operator = (const Binary& other)
     {
-        this->tenNumber = other.tenNumber;
-        this->twoCode = other.twoCode;
+        this->decimalSystem = other.decimalSystem;
+        this->binarySystem = other.binarySystem;
         return *this;
     }
 
@@ -53,16 +53,16 @@ public:
     Binary& operator + (const Binary& other)
     {
         Binary temp;
-        temp.tenNumber = this->tenNumber + other.tenNumber;
-        temp.Bin(temp.tenNumber);
+        temp.decimalSystem = this->decimalSystem + other.decimalSystem;
+        temp.Bin(temp.decimalSystem);
         return temp;
     }
 
     //Сложение и присваивание бинарных чисел
     Binary& operator += (const Binary& other)
     {
-        int sum = this->tenNumber + other.tenNumber;
-        this->tenNumber = sum;
+        int sum = this->decimalSystem + other.decimalSystem;
+        this->decimalSystem = sum;
         this->Bin(sum);
         return *this;
     }
@@ -71,16 +71,16 @@ public:
     Binary& operator - (const Binary& other)
     {
         Binary temp;
-        temp.tenNumber = this->tenNumber - other.tenNumber;
-        temp.Bin(temp.tenNumber);
+        temp.decimalSystem = this->decimalSystem - other.decimalSystem;
+        temp.Bin(temp.decimalSystem);
         return temp;
     }
 
     //Разность и присваивание бинарных чисел
     Binary& operator -= (const Binary& other)
     {
-        int sum = this->tenNumber - other.tenNumber;
-        this->tenNumber = sum;
+        int sum = this->decimalSystem - other.decimalSystem;
+        this->decimalSystem = sum;
         this->Bin(sum);
         return *this;
     }
@@ -89,16 +89,16 @@ public:
     Binary& operator * (const Binary& other)
     {
         Binary temp;
-        temp.tenNumber = this->tenNumber * other.tenNumber;
-        temp.Bin(temp.tenNumber);
+        temp.decimalSystem = this->decimalSystem * other.decimalSystem;
+        temp.Bin(temp.decimalSystem);
         return temp;
     }
 
     //Умножение и присваивание бинарных чисел
     Binary& operator *= (const Binary& other)
     {
-        int sum = this->tenNumber * other.tenNumber;
-        this->tenNumber = sum;
+        int sum = this->decimalSystem * other.decimalSystem;
+        this->decimalSystem = sum;
         this->Bin(sum);
         return *this;
     }
@@ -107,16 +107,16 @@ public:
     Binary& operator / (const Binary& other)
     {
         Binary temp;
-        temp.tenNumber = this->tenNumber / other.tenNumber;
-        temp.Bin(temp.tenNumber);
+        temp.decimalSystem = this->decimalSystem / other.decimalSystem;
+        temp.Bin(temp.decimalSystem);
         return temp;
     }
 
     //Деление и присваивание бинарных чисел
     Binary& operator /= (const Binary& other)
     {
-        int sum = this->tenNumber / other.tenNumber;
-        this->tenNumber = sum;
+        int sum = this->decimalSystem / other.decimalSystem;
+        this->decimalSystem = sum;
         this->Bin(sum);
         return *this;
     }
@@ -125,9 +125,9 @@ public:
     void Show()
     {
 #ifdef debug
-        std::cout << tenNumber << std::endl;
+        std::cout << decimalSystem << std::endl;
 #endif;
-        std::cout << twoCode << std::endl;
+        std::cout << binarySystem << std::endl;
     }
 
 
