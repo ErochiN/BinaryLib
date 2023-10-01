@@ -33,7 +33,12 @@ public:
         this->binarySystem = 0;
     }
 
-    
+    //Конструктор иницилизации
+    Binary(int number)
+    {
+        this->decimalSystem = number;
+        this->Bin(this->decimalSystem);
+    }
 
     //Присваивание значения int
     Binary& operator = (int number)
@@ -138,7 +143,9 @@ public:
 
 int main()
 {
-    
+    Binary a(40);
+
+    a.Show();
 
     return 0;
 }
