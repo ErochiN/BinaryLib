@@ -187,8 +187,6 @@ int main()
 
     a = 5;
 
-    c = 4 * a;
-
     c.Show();
     a.Show();
 
