@@ -33,6 +33,8 @@ public:
         this->binarySystem = 0;
     }
 
+    
+
     //Присваивание значения int
     Binary& operator = (int number)
     {
