@@ -128,6 +128,46 @@ public:
         return *this;
     }
 
+    //Сложение Бинарного числа с переменной
+    template <typename T>
+    Binary& operator + (T number) 
+    {
+        Binary temp;
+        temp.decimalSystem = this->decimalSystem + number;
+        temp.Bin(temp.decimalSystem);
+        return temp;
+    }
+
+    //Разность Бинарного числа с переменной
+    template <typename T>
+    Binary& operator - (T number)
+    {
+        Binary temp;
+        temp.decimalSystem = this->decimalSystem - number;
+        temp.Bin(temp.decimalSystem);
+        return temp;
+    }
+
+    //Умножение Бинарного числа с переменной
+    template <typename T>
+    Binary& operator * (T number)
+    {
+        Binary temp;
+        temp.decimalSystem = this->decimalSystem * number;
+        temp.Bin(temp.decimalSystem);
+        return temp;
+    }
+
+    //Диление Бинарного числа с переменной
+    template <typename T>
+    Binary& operator / (T number)
+    {
+        Binary temp;
+        temp.decimalSystem = this->decimalSystem / number;
+        temp.Bin(temp.decimalSystem);
+        return temp;
+    }
+
     //Вывод на экран бинарных чисел
     void Show()
     {
@@ -143,8 +183,13 @@ public:
 
 int main()
 {
-    Binary a(40);
+    Binary a, c;
 
+    a = 5;
+
+    c = 4 * a;
+
+    c.Show();
     a.Show();
 
     return 0;
