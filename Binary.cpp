@@ -208,31 +208,37 @@ public:
 		return *this;
 	}
 
+	//Проверка равенства
 	bool operator == (const Binary& other)
 	{
 		return this->decimalSystem == other.decimalSystem && this->binarySystem == other.binarySystem;
 	}
 
+	//Проверка неравенства
 	bool operator != (const Binary& other)
 	{
 		return !(this->decimalSystem == other.decimalSystem && this->binarySystem == other.binarySystem);
 	}
 
+	//Проверка на меньше-равно
 	bool operator <= (const Binary& other)
 	{
 		return this->decimalSystem <= other.decimalSystem;
 	}
 
+	//Проверка на больше-равно
 	bool operator >= (const Binary& other)
 	{
 		return this->decimalSystem >= other.decimalSystem;
 	}
 
+	//Проверка на меньше
 	bool operator < (const Binary& other)
 	{
 		return this->decimalSystem < other.decimalSystem;
 	}
 
+	//Проверка на больше
 	bool operator > (const Binary& other)
 	{
 		return this->decimalSystem > other.decimalSystem;
