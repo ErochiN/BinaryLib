@@ -173,8 +173,7 @@ public:
 	Binary& operator += (T number)
 	{
 		int sum = this->decimalSystem + number;
-		this->decimalSystem = sum;
-		this->Bin(sum);
+		Priv(sum);
 		return *this;
 	}
 
@@ -183,8 +182,7 @@ public:
 	Binary& operator -= (T number)
 	{
 		int sum = this->decimalSystem - number;
-		this->decimalSystem = sum;
-		this->Bin(sum);
+		Priv(sum);
 		return *this;
 	}
 
@@ -193,8 +191,7 @@ public:
 	Binary& operator *= (T number)
 	{
 		int sum = this->decimalSystem * number;
-		this->decimalSystem = sum;
-		this->Bin(sum);
+		Priv(sum);
 		return *this;
 	}
 
@@ -203,42 +200,41 @@ public:
 	Binary& operator /= (T number)
 	{
 		int sum = this->decimalSystem / number;
-		this->decimalSystem = sum;
-		this->Bin(sum);
+		Priv(sum);
 		return *this;
 	}
 
-	//Проверка равенства
+	//Проверка равенства бинарных чисел
 	bool operator == (const Binary& other)
 	{
 		return this->decimalSystem == other.decimalSystem && this->binarySystem == other.binarySystem;
 	}
 
-	//Проверка неравенства
+	//Проверка неравенства бинарных чисел
 	bool operator != (const Binary& other)
 	{
 		return !(this->decimalSystem == other.decimalSystem && this->binarySystem == other.binarySystem);
 	}
 
-	//Проверка на меньше-равно
+	//Проверка на меньше-равно бинарных чисел
 	bool operator <= (const Binary& other)
 	{
 		return this->decimalSystem <= other.decimalSystem;
 	}
 
-	//Проверка на больше-равно
+	//Проверка на больше-равно бинарных чисел
 	bool operator >= (const Binary& other)
 	{
 		return this->decimalSystem >= other.decimalSystem;
 	}
 
-	//Проверка на меньше
+	//Проверка на меньше бинарных чисел
 	bool operator < (const Binary& other)
 	{
 		return this->decimalSystem < other.decimalSystem;
 	}
 
-	//Проверка на больше
+	//Проверка на больше бинарных чисел
 	bool operator > (const Binary& other)
 	{
 		return this->decimalSystem > other.decimalSystem;
@@ -253,18 +249,24 @@ public:
 		std::cout << binarySystem << std::endl;
 	}
 
-
+	void Priv(int sum)
+	{
+		this->decimalSystem = sum;
+		this->Bin(sum);
+	}
 
 };
+
+
+
 
 int main()
 {
 	Binary a = 20;
-	Binary b = 20;
+	a.Show();
 
-	bool i = a >= b;
-
-	std::cout << i;
+	a += 20;
+	a.Show();
 
 	return 0;
 }
